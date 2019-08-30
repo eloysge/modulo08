@@ -3,7 +3,7 @@ modulo08 - bootcamp Rocketseat
 /\*\*
 
 - iniciar projeto:
-- yarn create react-app <nome-dir-raiz-do-project>
+- yarn create react-app [nome-dir-raiz-do-project]
 -
 - limpar exemplos do codigo pelo vs-code
 -
