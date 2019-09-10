@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 
 function App() {
   const [tech, setTech] = useState([]);
@@ -17,10 +17,13 @@ function App() {
     localStorage.setItem('tech', JSON.stringify(tech));
   }, [tech]);
 
-  function handleAdd() {
+  const handleAdd = useCallback(() => {
     setTech([...tech, newTech]);
     setNewTech('');
-  }
+  }, [newTech, tech]);
+
+  // faz a atribuição somente se "tech" for modificado
+  const sizeTech = useMemo(() => tech.length, [tech]);
 
   return (
     <>
@@ -36,6 +39,9 @@ function App() {
       <button type="button" onClick={handleAdd}>
         Adicionar
       </button>
+      <br />
+      <br />
+      <strong>Existe(m) {sizeTech} tecnologia(s).</strong>
     </>
   );
 }
